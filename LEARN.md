@@ -112,9 +112,236 @@ class MyClass {
 }
 ```
 
-## Modules
+## Controllers
 
-### What is a Module?
+### What is a Controller?
+
+Controller are functions that are used to handle incoming requests and return responses. They are used to organize the application into logical units.
+
+#### CLI:
+
+```bash
+nest g controller <controller-name>
+```
+
+#### Syntax:
+
+```typescript
+@Controller()
+class MyController {
+  @MethodDecorator() // @Get(), @Post(), @Put(), @Delete(), @Patch(), @Options(), @Head(), @All()
+  myMethod() {
+    console.log('myMethod');
+  }
+
+  @PropertyDecorator() // @Body(), @Param(), @Query(), @Headers(), @Res(), @Req(), @Next()
+  myProperty: string;
+
+  @ParameterDecorator() // @Body(), @Param(), @Query(), @Headers(), @Res(), @Req(), @Next()
+  myParameter: string;
+}
+```
+
+#### Note: 
+- Controller are functions.
+- Controller are applied to classes, methods, properties, and parameters.
+- Controller are used to handle incoming requests and return responses.
+
+#### Applications of controller?    
+
+1. User Management
+2. Product Management
+3. Order Management
+4. Payment Management
+5. Notification Management
+6. Campaign Management
+7. Loyalty Program Management
+8. Review Management
+9. Wishlist Management
+10. Cart Management
+
+#### Example
+
+```typescript
+@Controller('user')
+class MyController {
+  @Get()
+  getUsers() {
+    return 'All users';
+  }
+
+  @Get(':id')
+  getUser(@Param('id') id: string) {
+    return `User ${id}`;
+  }
+
+  @Post()
+  createUser(@Body() body: any) {
+    return `User created ${JSON.stringify(body)}`;
+  }
+
+  @Put(':id')
+  updateUser(@Param('id') id: string, @Body() body: any) {
+    return `User updated ${id} ${JSON.stringify(body)}`;
+  }
+
+  @Delete(':id')
+  deleteUser(@Param('id') id: string) {
+    return `User deleted ${id}`;
+  }
+}
+```
+
+#### Controllers without route prefix
+
+```typescript
+@Controller()
+class MyController {
+  @Get()
+  getUsers() {
+    return 'All users';
+  }
+}
+```
+
+### Services
+
+#### What is a Service?
+
+Service are functions that are used to handle business logic. They are used to organize the application into logical units.
+
+#### CLI:
+
+```bash
+nest g service <service-name>
+```
+
+#### Syntax:
+
+```typescript
+@Injectable()
+class MyService {
+  myMethod() {
+    console.log('myMethod');
+  }
+
+  myProperty: string;
+
+  myParameter: string;
+}
+```
+
+#### Note: 
+- Service are functions.
+- Service are applied to classes, methods, properties, and parameters.
+- Service are used to handle business logic.
+- Service are injectable. Always use @Injectable() decorator to make a class injectable.
+- Service are singleton by default.
+- Service are scoped to the module.
+  
+  #### Dependency Injection System in Nest.js
+  Dependency Injection is a design pattern that allows us to provide the dependencies of a class to it, rather than the class creating its own dependencies. In simple terms, it is a way to provide services to controllers. There are **four** types of dependency injection in Nest.js:
+    - **Constructor Injection**: **Recommended** 
+    > This is the most recommended way to inject dependencies in Nest.js. It is simple, clean, and easy to test.
+    ```typescript
+    @Injectable()
+    class MyService {}
+    
+    @Controller()
+    class MyController {
+      constructor(private readonly myService: MyService) {}
+    }
+    ```
+    > Example:
+    ```typescript
+    @Get() getUsers() {
+        return this.myService.getUsers(); 
+    }
+    ```
+
+    - **Property Injection**: 
+    ```typescript
+    @Injectable()
+    class MyService {}
+    
+    @Controller()
+    class MyController {
+      @Injectable() private readonly myService: MyService;
+    }
+    ```
+    > Example:
+    ```typescript
+    @Get() getUsers() {
+        return this.myService.getUsers(); 
+    }
+    ```
+
+
+    - **Method Injection**:
+    ```typescript
+    @Injectable()
+    class MyService {}
+    
+    @Controller()
+    class MyController {
+      @Injectable() private readonly myService: MyService;
+    }
+    ```
+    > Example:
+    ```typescript
+    @Get() getUsers() {
+        return this.myService.getUsers(); 
+    }
+    ```
+
+    - **Interface Injection**:
+    ```typescript
+    @Injectable()
+    class MyService {}
+    
+    @Controller()
+    class MyController {
+      @Injectable() private readonly myService: MyService;
+    }
+    ```
+    > Example:
+    ```typescript
+    @Get() getUsers() {
+        return this.myService.getUsers(); 
+    }
+    ```
+
+#### Applications of service?    
+
+1. User Management
+2. Product Management
+3. Order Management
+4. Payment Management
+5. Notification Management
+6. Campaign Management
+7. Loyalty Program Management
+8. Review Management
+9. Wishlist Management
+10. Cart Management
+
+#### Example
+
+```typescript
+@Injectable()
+class MyService {
+  myMethod() {
+    console.log('myMethod');
+  }
+
+  myProperty: string;
+
+  myParameter: string;
+}
+```
+
+### Modules
+
+#### What is a Module?
 
 Module are containers for controllers, services, and other modules. They are used to organize the application into logical units.
 
