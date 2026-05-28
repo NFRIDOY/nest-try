@@ -6,6 +6,10 @@ Nest cli is a command line interface for Nest.js framework. It is used to genera
 
 #### Commands:
 
+**Generate a resource** : 4 in One(controller, service, module, dto)
+ ```
+nest g resource <resource-name>
+```
 **Generate a controller**
  ```
 nest g controller <controller-name>
