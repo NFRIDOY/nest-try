@@ -359,7 +359,7 @@ Module are containers for controllers, services, and other modules. They are use
 #### Note: 
 
 - It is a core part of Nest.js Architecture that helps to organize the application into logical units. 
-- **Root module** - The root module is the main module of the application. It is the entry point for the application.
+- **Root module** - The root module is the main module of the application. It is the entry point for the application *or any module's entry point where all controllers and services are included.*
 - **Feature module** - A feature module is a module that is used to organize the application into logical units.
 - **Core module** - A core module is a module that is used to provide common services to the application.
 - **Shared module** - A shared module is a module that is used to provide common components to the application.
