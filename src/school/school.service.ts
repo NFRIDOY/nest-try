@@ -41,6 +41,15 @@ export class SchoolService {
     return this.schools = updatedSchool;
   }
 
+  patchUpdate(id: number, updateSchoolDto: UpdateSchoolDto) {
+    const shoolData = this.findOne(id)
+
+    Object.assign(shoolData, updateSchoolDto)
+    // this.schools = [...this.schools,shoolData]
+
+    return shoolData
+  }
+
   remove(id: number) {
     // return `This action removes a #${id} school`;
     const filteredSchool = this.schools.filter((sc) => sc.id !== id)
