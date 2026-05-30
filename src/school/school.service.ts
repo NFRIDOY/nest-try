@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateSchoolDto } from './dto/create-school.dto';
 import { UpdateSchoolDto } from './dto/update-school.dto';
 
@@ -26,7 +26,11 @@ export class SchoolService {
 
   findOne(id: number) {
     // return `This action returns a #${id} school`;
-    return this.schools.find((sc) => sc.id === id)
+    const schoolFind = this.schools.find((sc) => sc.id === id)
+    if (!schoolFind) {
+      throw new NotFoundException("School not found")
+    }
+    return schoolFind
   }
 
   update(id: number, updateSchoolDto: UpdateSchoolDto) {
