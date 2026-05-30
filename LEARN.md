@@ -6,9 +6,62 @@ Nest cli is a command line interface for Nest.js framework. It is used to genera
 
 #### Commands:
 
-**Generate a resource** : 4 in One(controller, service, module, dto)
+**Generate a resource** : 4 in One(controller, service, module, dto/test)
  ```
-nest g resource <resource-name>
+nest g resource <res-name>
+nest g res <res-name>
+nest g res <res-name> --no-dto
+```
+*Other resource commands with more flags*:
+```
+nest g res <res-name> --no-service 
+# (controller, module, dto)
+nest g res <res-name> --no-controller 
+# (service, module, dto)
+nest g res <res-name> --no-module 
+# (controller, service, dto)
+nest g res <res-name> --dry-run 
+# Show what would be generated but don't create files
+nest g res <res-name> --flat 
+# Don't create a sub-directory
+nest g res <res-name> --path <path> 
+# Create the resource in a sub-directory
+nest g res <res-name> --skip-tests 
+# Skips creating the test files
+nest g res <res-name> --skip-routes 
+# Skips registering the resource routes in the module
+nest g res <res-name> --skip-modules 
+# Skips creating the module
+nest g res <res-name> --skip-dto 
+# Skips creating the dto
+nest g res <res-name> --skip-service 
+# Skips creating the service
+nest g res <res-name> --skip-controller 
+# Skips creating the controller
+nest g res <res-name> --skip-all 
+# Skips creating all the files
+nest g res <res-name> --skip-all --dry-run 
+# Skips creating all the files and shows what would be generated but don't create files
+nest g res <res-name> --flat 
+# Don't create a sub-directory
+nest g res <res-name> --path <path> 
+# Create the resource in a sub-directory
+nest g res <res-name> --skip-tests 
+# Skips creating the test files
+nest g res <res-name> --skip-routes 
+# Skips registering the resource routes in the module
+nest g res <res-name> --skip-modules 
+# Skips creating the module
+nest g res <res-name> --skip-dto 
+# Skips creating the dto
+nest g res <res-name> --skip-service 
+# Skips creating the service
+nest g res <res-name> --skip-controller 
+# Skips creating the controller
+nest g res <res-name> --skip-all 
+# Skips creating all the files
+nest g res <res-name> --skip-all --dry-run 
+# Skips creating all the files and shows what would be generated but don't create files
 ```
 **Generate a controller**
  ```
