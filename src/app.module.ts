@@ -12,4 +12,4 @@ import { SchoolModule } from './school/school.module';
   controllers: [AppController, UserController, ProductController],
   providers: [AppService, ProductService],
 })
-export class AppModule {}
+export class AppModule { }

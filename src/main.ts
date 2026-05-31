@@ -8,8 +8,8 @@ async function bootstrap() {
 
   // Configure Swagger options
   const config = new DocumentBuilder()
-    .setTitle('NestJS Try API')
-    .setDescription('Interactive API documentation')
+    .setTitle('Nest Try API')
+    .setDescription('Interactive Nest.js API documentation')
     .setVersion('1.0')
     .addTag('NestJs Try')
     .build();
@@ -17,8 +17,8 @@ async function bootstrap() {
   // Create the Swagger document
   const document = SwaggerModule.createDocument(app, config);
 
-  // Setup the UI at http://localhost:3000/api
-  SwaggerModule.setup('api', app, document);
+  // Setup the UI at http://localhost:3000/api/docs
+  SwaggerModule.setup('api/docs', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
 }

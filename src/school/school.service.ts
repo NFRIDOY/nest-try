@@ -6,15 +6,16 @@ import { UpdateSchoolDto } from './dto/update-school.dto';
 export class SchoolService {
 
   private schools = [
-    { id: 1, name: 'shcool one' },
-    { id: 2, name: 'shcool two' },
-    { id: 3, name: 'shcool three' },
+    { id: 1, name: 'shcool one', type: 'school' },
+    { id: 2, name: 'shcool two', type: 'college' },
+    { id: 3, name: 'shcool three', type: 'university' },
   ]
 
   create(createSchoolDto: CreateSchoolDto) {
     const newSchool = {
       id: this.schools.length + 1,
-      name: createSchoolDto.name
+      name: createSchoolDto.name,
+      type: createSchoolDto.type
     }
     this.schools.push(newSchool)
     return newSchool
