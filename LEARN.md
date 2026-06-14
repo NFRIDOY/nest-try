@@ -432,3 +432,15 @@ Module are containers for controllers, services, and other modules. They are use
 
 Routing is the process of handling incoming requests and returning appropriate responses. In Nest.js, routing is handled by controllers.
 
+
+### class-validator class-transformer
+
+**CLI**
+
+```bash
+npm i --save class-validator class-transformer
+```
+
+- class-validator is a decorator-based library for validating class-based objects. class-transformer is a decorator-based library for transforming class-based objects.
+- It helps in validating the incoming request data.
+- It helps in transforming the incoming request data.
